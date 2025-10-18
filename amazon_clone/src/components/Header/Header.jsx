@@ -5,6 +5,7 @@ import { MdOutlineLocationOn } from "react-icons/md";
 import usflag from "../../assets/american-flag.jpg";
 import classes from "./header.module.css"
 import { BiCartAdd } from "react-icons/bi";
+import { Link } from 'react-router-dom';
 
 
 function Header() {
@@ -12,9 +13,9 @@ function Header() {
       <section>
         <div className={classes.header_container}>
           <div className={classes.logo_container}>
-            <a href="#">
+            <Link to="/">
               <img src={amazonlogo} alt="amazon logo" />
-            </a>
+            </Link>
             <div className={classes.delivery}>
               <span>
                 <MdOutlineLocationOn />
@@ -33,13 +34,13 @@ function Header() {
             <IoIosSearch size={25} />
           </div>
           <div className={classes.order_container}>
-            <a href="#" className={classes.language}>
+            <a href="/" className={classes.language}>
               <img src={usflag} alt="" />
               <select name="" id="">
                 <option value="">EN</option>
               </select>
             </a>
-            <a href="#" className={classes.sign}>
+            <Link to="/auth" className={classes.sign}>
               <div>
                 <p>Sing in</p>
                 <span>Account & Lists</span>
@@ -47,15 +48,15 @@ function Header() {
                   <option value=""></option>
                 </select>
               </div>
-            </a>
-            <a href="/" className={classes.returns}>
+            </Link>
+            <Link to="/orders" className={classes.returns}>
               <p>Returns</p>
               <span> &Orders</span>
-            </a>
-            <a href="/" className={classes.cart}>
-              <BiCartAdd size={35}/>
+            </Link>
+            <Link to="/cart" className={classes.cart}>
+              <BiCartAdd size={35} />
               <span>0</span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
