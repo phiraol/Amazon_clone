@@ -6,11 +6,23 @@ import { Link } from 'react-router-dom';
 import { DataContext } from '../dataProvider/DataProvider';
 import { Type } from '../../utility/action.type';  
 
-function ProductCard({ product, flex, renderDes }) {
+function ProductCard({ product, flex, renderDes, renderAdd }) {
   const { image, title, rating, id, price, description } = product;
   const [state, dispatch] = useContext(DataContext)
-   
-  }
+  const addtocart = () => {
+    dispatch({
+      type: Type.ADD_TO_BASKET,
+      item: {
+        image,
+        title,
+        rating,
+        id,
+        price,
+        description,
+      },
+    });
+    }
+
   return (
     <div
       className={`${classes.card_continer} ${
@@ -32,7 +44,9 @@ function ProductCard({ product, flex, renderDes }) {
         <div>
           <CurrancyFormat amount={price}></CurrancyFormat>
         </div>
-        <button className={classes.button} onClick={addtocart}>add to cart</button>
+        {
+          renderAdd && <button className={classes.button} onClick={addtocart}>add to cart</button>
+        }
       </div>
     </div>
   );
