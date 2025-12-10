@@ -59,9 +59,14 @@ function Header() {
                         {user.email.split("@")[0].charAt(0).toUpperCase() +
                           user.email.split("@")[0].slice(1)}
                       </p>
-                      <p style={{ fontWeight: "bold" }} onclick={()=>auth.signOut}>   Sign Out</p>
+                      <p
+                        style={{ fontWeight: "bold" }}
+                        onClick={() => auth.signOut()}
+                      >
+                        {" "}
+                        Sign Out
+                      </p>
                     </>
-                    
                   ) : (
                     <>
                       <p>Hello, Sign In</p>
