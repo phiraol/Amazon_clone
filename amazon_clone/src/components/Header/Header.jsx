@@ -7,12 +7,12 @@ import classes from "./header.module.css"
 import { BiCartAdd } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 import { DataContext } from '../dataProvider/DataProvider';
-
+import { auth } from "../../utility/firebase.js";
 
 
 
 function Header() {
-  const [{ basket }, dispatch] = useContext(DataContext);
+  const [{user, basket }, dispatch] = useContext(DataContext);
   console.log(basket.length);
   const totalItem = basket?.reduce((amount, item) => {
     return item.amount + amount;
@@ -49,10 +49,26 @@ function Header() {
                 <option value="">EN</option>
               </select>
             </a>
-            <Link to="/auth" className={classes.sign}>
+            <Link to={!user && "/auth"} className={classes.sign}>
               <div>
-                <p>Sing in</p>
-                <span>Account & Lists</span>
+                <div>
+                  {user ? (
+                    <>
+                      <p>
+                        Hello,{" "}
+                        {user.email.split("@")[0].charAt(0).toUpperCase() +
+                          user.email.split("@")[0].slice(1)}
+                      </p>
+                      <p style={{ fontWeight: "bold" }} onclick={()=>auth.signOut}>   Sign Out</p>
+                    </>
+                    
+                  ) : (
+                    <>
+                      <p>Hello, Sign In</p>
+                      <span>Account & Lists</span>
+                    </>
+                  )}
+                </div>
                 <select name="" id="">
                   <option value=""></option>
                 </select>
