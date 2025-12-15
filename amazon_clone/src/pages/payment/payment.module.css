@@ -47,3 +47,76 @@
 .payment_details button:hover{
     background-color: var(--primary-shade);
 }
+
+@media (max-width: 768px) {
+
+  .payment {
+    padding: 15px;
+  }
+
+  .flex {
+    flex-direction: column;
+    padding: 15px;
+    width: 100%;
+  }
+
+  .flex h3 {
+    min-width: auto;
+    font-size: 18px;
+  }
+
+  .flex img {
+    width: 60px !important;
+  }
+
+  .payment_card_container {
+    max-width: 100%;
+  }
+
+  .payment_price > div {
+    justify-content: space-between;
+  }
+
+  .payment_header {
+    font-size: 20px;
+    padding: 15px;
+  }
+}
+@media (max-width: 480px) {
+
+  .payment_header {
+    font-size: 18px;
+  }
+
+  .flex {
+    gap: 10px;
+  }
+
+  .payment_price {
+    padding: 10px;
+  }
+
+  .payment_details button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 480px) {
+
+  .payment_header {
+    font-size: 18px;
+  }
+
+  .flex {
+    gap: 10px;
+  }
+
+  .payment_price {
+    padding: 10px;
+  }
+
+  .payment_details button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
