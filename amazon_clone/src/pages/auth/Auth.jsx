@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import classes from './SingUp.module.css'
 // import LayOut from '../../components/LayOut/LayOut'
 import image from '../../assets/amazonlogo.png'
-import { Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate, useLocation} from 'react-router-dom';
 import { auth } from "../../utility/firebase"
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import { DataContext } from '../../components/dataProvider/DataProvider';
@@ -18,6 +18,8 @@ function Auth() {
     signIn: false,
   })
   const navigate = useNavigate()
+  const navData = useLocation()
+  console.log(navData)
 console.log(user)
   const authHandler = async(e) => {
     e.preventDefault();
@@ -29,7 +31,7 @@ console.log(user)
           user: userInfo.user
         })
         setLoading({ ...loading, signIn: false });
-        navigate("/")
+        navigate(navData?.state.redirect || "/")
       }).catch((err) => {
         setError(err.message);
         setLoading({ ...loading, signIn: false });
@@ -42,7 +44,7 @@ console.log(user)
           user: userInfo.user,
         });
         setLoading({ ...loading, signUp: false });
-        navigate("/");
+        navigate(navData?.state.redirect || "/");
       }).catch((err) => {
         setError(err.message)
         setLoading({ ...loading, signUp: false });
@@ -56,11 +58,11 @@ console.log(user)
         <img
           src="https://pngimg.com/uploads/amazon/amazon_PNG13.png"
           alt="amazon logo"
-          
         />
       </Link>
       <div className={classes.login_container}>
         <h1>Sing In</h1>
+        {navData?.state?.msg && <small style={{color:"red", textAlign:"center",  border:"1px solid gold", fontWeight:"bold"}}>{navData?.state?.msg}</small>}
         <form action="">
           <div>
             <label htmlFor="email">E-mail</label>

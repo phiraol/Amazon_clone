@@ -82,7 +82,7 @@ const handlepayment = async(e) => {
           <h3>Review items and delivery</h3>
           <div className={classes.review}>
             {basket?.map((item) => (
-              <ProductCard product={item} flex={true} renderDes={true} />
+              <ProductCard product={item} flex={true} />
             ))}
           </div>
         </div>
