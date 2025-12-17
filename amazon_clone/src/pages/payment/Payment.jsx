@@ -58,6 +58,7 @@ const handlepayment = async(e) => {
      created: paymentIntent.created,
    }
     );
+    dispatch({type: Type.EMPTY_BASKET})
     setProcessing(false)
       // console.log(confirmation)
     } catch (error) {
