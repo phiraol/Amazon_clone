@@ -1,0 +1,19 @@
+.container{
+    background-color: #efeeee;
+    padding: 30px;
+}
+.order_container{
+    background-color: white;
+    padding: 20px;
+    height: auto;
+}
+.order_container h2{
+    border-bottom: 2px solid var(--primary-color);
+
+}
+.ProductCard img{
+    width: 100px !important;
+}
+.ProductCard div{
+    height: auto !important
+}
