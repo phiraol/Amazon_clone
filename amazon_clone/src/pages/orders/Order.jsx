@@ -44,10 +44,12 @@ function Order() {
                 <strong>Order ID:</strong> {eachOrder.id}
               </p>
               <p>
+
+                
                 <strong>Date:</strong>{" "}
                 {new Date(eachOrder.created * 1000).toLocaleString()}
               </p>
-              <p style={{display:"flex"}}>
+              <p style={{ display: "flex" }}>
                 <strong>Total:</strong>{" "}
                 {eachOrder.amount ? (
                   <CurrancyFormat amount={eachOrder.amount} />
